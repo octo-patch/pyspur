@@ -13,7 +13,9 @@ def test_minimax_model_registry_contains_target_models() -> None:
     assert m3.constraints.context_window == 1000000
     assert m3.constraints.input_modalities == {"text", "image", "video"}
     assert m3.constraints.thinking_modes == {"adaptive", "disabled"}
-    assert m3.constraints.pricing_usd_per_million_tokens["cache_read"] == 0.06
+    assert m3.constraints.pricing_usd_per_million_tokens["cache_read"] == 0.12
+    assert m3.constraints.pricing_usd_per_million_tokens["input"] == 0.6
+    assert m3.constraints.pricing_usd_per_million_tokens["output"] == 2.4
     assert len(m3.constraints.pricing_tiers_usd_per_million_tokens) == 4
 
     assert m2_7 is not None
